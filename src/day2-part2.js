@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/dayX-partY_input.txt";
+const inputFilePath = "./src/day2-part2_input.txt";
 
 function findSomething(stringToParse) {
   return stringToParse;
