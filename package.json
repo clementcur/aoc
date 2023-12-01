@@ -1,28 +1,17 @@
 {
-    "name": "js-skeleton",
+    "name": "aoc2023",
     "version": "0.1.0",
-    "description": "A starting point for other JS projects",
+    "description": "AdventOfCode 2023",
     "keywords": [
-        "javascript project",
-        "javascript template",
-        "js project",
-        "js template",
-        "skeleton application",
-        "skeleton",
-        "template application",
-        "template"
+        "advent",
+        "code"
     ],
-    "license": "MIT",
-    "author": {
-        "name": "Milan Miščević",
-        "email": "milan.miscevic@gmail.com"
-    },
     "scripts": {
       "test": "mocha"
     },
     "dependencies": {},
     "devDependencies": {
-        "mocha": "^9.2.2"
+        "mocha": "10.2.0"
     },
     "type": "module"
 }
