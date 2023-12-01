@@ -1,0 +1,28 @@
+{
+    "name": "js-skeleton",
+    "version": "0.1.0",
+    "description": "A starting point for other JS projects",
+    "keywords": [
+        "javascript project",
+        "javascript template",
+        "js project",
+        "js template",
+        "skeleton application",
+        "skeleton",
+        "template application",
+        "template"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Milan Miščević",
+        "email": "milan.miscevic@gmail.com"
+    },
+    "scripts": {
+      "test": "mocha"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "mocha": "^9.2.2"
+    },
+    "type": "module"
+}
