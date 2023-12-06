@@ -13,7 +13,7 @@ function decodeLine(line) {
 
 // aggregating result
 
-var result = 0;
+let result = 0;
 
 function addToResult(number) {
   result += number;
@@ -28,16 +28,16 @@ function outputResult() {
 const fileStream = fs.createReadStream(inputFilePath);
 
 const rl = readline.createInterface({
-    input: fileStream,
-    crlfDelay: Infinity
+  input: fileStream,
+  crlfDelay: Infinity
 });
 
 rl.on('line', (line, result) => {
-    addToResult(Number.parseInt(decodeLine(line)));
+  addToResult(Number.parseInt(decodeLine(line)));
 });
 
 rl.on('close', () => {
-    outputResult();
+  outputResult();
 });
 
 //const line = process.argv[2];
