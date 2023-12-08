@@ -32,7 +32,7 @@ const rl = readline.createInterface({
   crlfDelay: Infinity
 });
 
-rl.on('line', (line, result) => {
+rl.on('line', (line) => {
   addToResult(Number.parseInt(decodeLine(line)));
 });
 
