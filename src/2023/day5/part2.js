@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day5-part2_input.txt";
+const inputFilePath = "./src/2023/day5/part2_input.txt";
 const numRegex = /\d+/;
 const seedToSoilTitle = "seed-to-soil";
 const soilToFertilizerTitle = "soil-to-fertilizer";

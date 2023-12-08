@@ -1,13 +1,13 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day2-part1_input.txt";
+const inputFilePath = "./src/2023/day2/part2_input.txt";
 const red = "red";
 const green = "green";
 const blue = "blue";
-const maxReds = 12;
-const maxGreens = 13;
-const maxBlues = 14;
+// const maxReds = 12;
+// const maxGreens = 13;
+// const maxBlues = 14;
 
 function getIdOfGameOK(stringToParse) {
   let gameSplit = stringToParse.split(":");
@@ -37,21 +37,15 @@ function getIdOfGameOK(stringToParse) {
     });
   });
 
-  let isGameOK = true;
+  let power = 1;
   maxSetsMap.forEach((value, key, map) => {
-    if (key == red) {
-      isGameOK &= Number.parseInt(value) <= maxReds;
-    } else if (key == green) {
-      isGameOK &= Number.parseInt(value) <= maxGreens;
-    } else if (key == blue) {
-      isGameOK &= Number.parseInt(value) <= maxBlues;
-    }
+    power *= value;
   });
 
-  console.log("gameId: " + gameId + "; isGameOK: " + isGameOK);
+  console.log("gameId: " + gameId + "; power: " + power);
   console.log(maxSetsMap);
 
-  return isGameOK ? gameId : 0;
+  return power;
 }
 
 function addSetToMap(setsMap, key, value) {

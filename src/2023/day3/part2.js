@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day3-part2_input.txt";
+const inputFilePath = "./src/2023/day3/part2_input.txt";
 let numberAsciiCodes = new Array(48, 49, 50, 51, 52, 53, 54, 55, 56, 57);
 let starSymbolAsciiCode = 42;
 

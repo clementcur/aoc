@@ -1,26 +1,38 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day7-part1_input.txt";
-let cardsRef = new Array("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A");
+const inputFilePath = "./src/2023/day7/part2_input.txt";
+const joker = "J";
+let cardsRef = new Array(joker, "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A");
 
 function countSameCards(handArray) {
   let maxSameCards = 0;
+  let jokers = countJokers(handArray);
   for (let i=0 ; i<handArray.length ; i++) {
-    let cardCount = handArray.filter(card => card == handArray[i]).length;
+    let cardCount = handArray.filter(card => card == handArray[i] && card != joker).length;
     maxSameCards = cardCount > maxSameCards ? cardCount : maxSameCards;
   }
 
-  return maxSameCards;
+  return maxSameCards+jokers;
 }
 
 function getSameCard(handArray, instancesCount) {
   let sameCardMap = new Map();
   let sameCard;
+  let jokers = countJokers(handArray);
+  sameCardMap.set(joker, jokers);
   for (let i=0 ; i<handArray.length ; i++) {
-    let cardCount = handArray.filter(card => card == handArray[i]).length;
-    sameCardMap.set(handArray[i], cardCount);
+    if(handArray[i] != joker) {
+      let cardCount = handArray.filter(card => card == handArray[i] && card != joker).length;
+      sameCardMap.set(handArray[i], cardCount);
+    }
   }
+
+  sameCardMap.forEach((v, k) => {
+    if (k != joker) {
+      sameCardMap.set(k, sameCardMap.get(k) + jokers); 
+    }
+  });
 
   sameCardMap.forEach((v, k) => {
     if (v == instancesCount) {
@@ -29,6 +41,21 @@ function getSameCard(handArray, instancesCount) {
   });
 
   return sameCard;
+}
+
+function countJokers(handArray) {
+  return handArray.filter(card => card == joker).length;
+}
+
+function removeNJokers(handArray, nJ) {
+  if (nJ > 0) {
+    for (let i=0; i<nJ ; i++) {
+      let jokerIndex = handArray.indexOf(joker);
+      handArray.splice(jokerIndex, 1);
+    }
+  }
+  
+  return handArray;
 }
 
 function isFiveOfAKind(handArray) {
@@ -46,6 +73,7 @@ function isFullHouse(handArray) {
 
   let trioCard = getSameCard(handArray, 3);
   let remains = handArray.filter(card => card != trioCard);
+  remains = removeNJokers(remains, remains.length-2);
 
   return countSameCards(remains) == 2;
 }
@@ -57,6 +85,7 @@ function isThreeOfAKind(handArray) {
 
   let trioCard = getSameCard(handArray, 3);
   let remains = handArray.filter(card => card != trioCard);
+  remains = removeNJokers(remains, remains.length-2);
 
   return countSameCards(remains) == 1;
 }
@@ -68,6 +97,7 @@ function isTwoPair(handArray) {
 
   let duoCard = getSameCard(handArray, 2);
   let remains = handArray.filter(card => card != duoCard);
+  remains = removeNJokers(remains, remains.length-3);
   let duoSecondCard = getSameCard(remains, 2);
 
   return duoSecondCard != undefined;
@@ -80,6 +110,7 @@ function isOnePair(handArray) {
 
   let duoCard = getSameCard(handArray, 2);
   let remains = handArray.filter(card => card != duoCard);
+  remains = removeNJokers(remains, remains.length-3);
 
   return countSameCards(remains) == 1;
 }

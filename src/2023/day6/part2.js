@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day6-part1_input.txt";
+const inputFilePath = "./src/2023/day6/part2_input.txt";
 
 function getTimes(stringToParse) {
   let times = stringToParse.split(':')[1];
@@ -10,7 +10,11 @@ function getTimes(stringToParse) {
   timesArray = timesArray.map(val => Number.parseInt(val));
   timesArray = timesArray.filter(val => !isNaN(val));
 
-  return timesArray;
+  let theTime = Number.parseInt(timesArray.join(''));
+  let theArray = new Array();
+  theArray.push(theTime);
+
+  return theArray;
 }
 
 function getDistances(stringToParse) {
@@ -20,7 +24,11 @@ function getDistances(stringToParse) {
   distancesArray = distancesArray.map(val => Number.parseInt(val));
   distancesArray = distancesArray.filter(val => !isNaN(val));
 
-  return distancesArray;
+  let theDistance = Number.parseInt(distancesArray.join(''));
+  let theArray = new Array();
+  theArray.push(theDistance);
+
+  return theArray;
 }
 
 // aggregating result
@@ -71,7 +79,7 @@ rl.on('close', () => {
   // console.log(distancesArray);
   for (let i=0 ; i<timesArray.length ; i++) {
     let combinations = computeCombinations(i);
-    //console.log(combinations);
+    // console.log(combinations);
     multiplyToResult(combinations);
   }
   

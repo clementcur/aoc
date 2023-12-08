@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day4-part2_input.txt";
+const inputFilePath = "./src/2023/day4/part2_input.txt";
 
 function getWinningNumbers(stringToParse) {
   let numbers = stringToParse.split(':')[1];

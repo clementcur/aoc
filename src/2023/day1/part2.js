@@ -1,7 +1,7 @@
 import fs from "fs";
 import readline from "readline";
 
-const inputFilePath = "./src/day1-part2_input.txt";
+const inputFilePath = "./src/2023/day1/part2_input.txt";
 const digitZeroAsciiCode = 48;
 const digitNineAsciiCode = digitZeroAsciiCode + 9;
 const digitsAsChars = new Map([
