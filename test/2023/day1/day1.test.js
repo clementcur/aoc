@@ -1,5 +1,5 @@
 import assert from 'assert';
-import * as day1 from '../src/day1.js';
+import * as day1 from '../../../src/2023/day1/day1.js';
 
 describe("Day 1", function(){
   it("expect decode 1 = 1", function(){

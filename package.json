@@ -1,7 +1,7 @@
 {
-    "name": "aoc2023",
+    "name": "aoc",
     "version": "0.1.0",
-    "description": "AdventOfCode 2023",
+    "description": "AdventOfCode",
     "keywords": [
         "advent",
         "code"
