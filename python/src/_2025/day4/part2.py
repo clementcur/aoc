@@ -3,7 +3,7 @@ from typing import Any, Dict, List
 class Part2():
 
   def __init__(self):
-    self._day = '3'
+    self._day = '4'
     self._lines = []
     with open(f"src/_2025/day{self._day}/part2_input.txt") as part1_file:
       for line in part1_file:
