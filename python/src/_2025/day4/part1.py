@@ -10,21 +10,28 @@ class Part1():
         self._lines.append(line.strip())
         
   def compute(self) -> int:
-    joltage_sum = 0
+    lines_len = len(self._lines)
+    forklift_rolls = 0
 
-    for bank in self._lines:
-      first_max=0
-      index_first_max=0
-      second_max=0
-      for i in range(len(bank)-1):
-        first_max, index_first_max = (bank[i], i) if int(bank[i]) > int(first_max) else (first_max, index_first_max)
+    for line_id in range(lines_len):
+      if line_id == 0 or line_id == lines_len - 1:
+        d
+      else:
 
-      for j in range(index_first_max+1, len(bank)):
-        second_max = bank[j] if int(bank[j]) > int(second_max) else second_max
       
-      joltage = int(first_max + second_max)
-      #print(f"joltage={joltage}")
-      joltage_sum += joltage
-      #print(f"joltage_sum={joltage_sum}")
 
-    return joltage_sum
+    return forklift_rolls
+  
+  def count_adj_up(self, line_id, char_id) -> int:
+    lines_len = len(self._lines)
+    theline_len = len(self._lines[line_id])
+    count = 0
+
+    if line_id > 0 and line_id < lines_len :
+      if char_id == 0:
+        count += 
+      
+      char_id < theline_len - 1:
+
+
+    return count
